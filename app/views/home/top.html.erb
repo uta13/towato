@@ -1,0 +1,47 @@
+<header>
+  <div class="logo">
+    <img src="/logo-wa.png">
+  </div>
+
+<!--
+  <div class="serch">
+    <input type="search" name="search" placeholder="キーワードを入力" class="serch_box">
+    <button type="submit">
+	    <i class="fa fa-search" aria-hidden="true"></i>
+    </button>
+  </div>
+-->
+
+  <div class="header-mid">
+    <a href="#">みんなに見てもらう</a>
+  </div>
+
+  <div class="header-right">
+    <a href="/login" class="square_btn_login">ログイン</a>
+    <a href="/signup" class="square_btn_new">新規登録</a>
+  </div>
+</header>
+
+
+<div class="wrapper">
+  <% if flash[:notice] %>
+   <div class="flash">
+     <%= flash[:notice] %>
+   </div>
+  <% end %>
+  <div class="wrapper-left">
+    <img src="/top_title.png">
+    <p>新しいサービス,アイデアをいち早く公開して<br>たくさんの人に使ってもらう場です。</p>
+  </div>
+  <div class="wrapper-right">
+    <img src="/logo.png">
+  </div>
+</div>
+
+<div class="discription">
+  <h1>towato</h1>
+  <p>思いついたアイデアを投稿して、みんなに見てもらえる！<br>
+  さらに、そのアイデアに共感してくれた人がアイデアを買い取って実現しちゃうことも</p>
+  <%= link_to('アイデアを見てみる', 'index', class: 'square_btn_dev') %>
+  <%= link_to('アイデアを投稿する', '/posts/new', class: 'square_btn_home') %>
+</div>

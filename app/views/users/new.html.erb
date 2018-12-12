@@ -1,0 +1,21 @@
+<div class="create_user">
+  <%= form_tag("/users/create") do %>
+  <h1>アカウントを作成</h1>
+  <div class="container">
+    <p>メールアドレスを利用して新規会員登録</p>
+    <% @user.errors.full_messages.each do |message| %>
+      <div class="form-error">
+        <p><%= message %></p>
+      </div>
+    <% end %>
+    <input name="name" value="<%= @user.name%>" class="name" placeholder="ユーザー名">
+    <input value="<%= @user.email%>" class="mail" name="email" placeholder="Eメール">
+    <input type="password" class="password" name="password" placeholder="パスワード">
+    <input type="submit" value="登録する" class="submit">
+  </div>
+  <% end %>
+  <!-- <p>or</p>
+  <a href="#" class="square_btn_facebook">facebookで登録</a>
+  <a href="#" class="square_btn_twitter">Twitterで登録</a>
+  --->
+</div>

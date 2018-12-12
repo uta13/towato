@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Towato</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="/index"><img src="/logo-wa.png"></a>
+      </div>
+      <!-- <div class="serch">
+        <input type="search" name="search" placeholder="キーワードを入力" class="serch_box">
+        <button type="submit">
+    	    <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </div>
+      --->
+
+      <div class="header-mid">
+        <%= link_to("みんなに見てもらう","/posts/new") %>
+      </div>
+
+      <% current_user = User.find_by(id: session[:user_id]) %>
+
+      <% if current_user %>
+
+        <div class="header-right">
+        <%= link_to('ログアウト', '/logout', class: 'square_btn_logout') %>
+        <a href="<%= "/users/#{@current_user.id}" %>">
+          <img src="<%= "/user_images/#{@current_user.image_name}" %>">
+        </a>
+
+      <% else %>
+
+        <div class="header-right">
+        <%= link_to('ログイン', '/login', class: 'square_btn_login') %>
+        <%= link_to('新規登録', '/signup', class: 'square_btn_new') %>
+        </div>
+
+      <% end %>
+    </header>
+    <%= yield %>
+  </body>
+</html>

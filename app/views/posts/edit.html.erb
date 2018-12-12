@@ -1,0 +1,17 @@
+<% @post.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+
+        <div class="create_post">
+          <%= form_tag("/posts/#{@post.id}/update", {multipart:true}) do %>
+          <h2>アイデア名</h2>
+          <input name="title" value="<%= @post.title %>">
+          <h2>アイデアイメージ画像</h2>
+          <input type="file" name="image">
+          <h2>アイデア概要</h2>
+          <textarea name="content"><%= @post.content %></textarea>
+          <input type="submit" value="変更を保存する" class="submit">
+          <% end %>
+        </div>

@@ -1,0 +1,23 @@
+<div class="login">
+  <%= form_tag("/users/login") do %>
+  <h1>ログイン</h1>
+  <div class="container">
+    <p>メールアドレスでログイン</p>
+      <% if @error_message %>
+        <div class="form_error">
+          <p><%= @error_message %></p>
+        </div>
+      <% end %>
+
+    <input class="mail" name="email" value="<%= @email %>" placeholder="メールアドレス">
+    <input class="password" name="password" type="password" value="<%= @password %>" placeholder="パスワード">
+    <input type="submit" value="ログイン" class="submit">
+  <% end %>
+  </div>
+    <!--<p>or</p>
+    <%= link_to("facebookでログイン", "#", class: "square_btn_facebook",) %>
+    <%= link_to("twitterでログイン", "#", class: "square_btn_twitter") %>
+    --->
+</div>
+
+<div id="fb-root"></div>

@@ -1,0 +1,18 @@
+
+<% @user.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+
+<%= form_tag("/users/#{@user.id}/update", {multipart:true}) do%>
+<div class="edit_sec">
+  <p>ユーザー</p>
+  <input value="<%= @user.name%>" name="name" class="name">
+  <p>メール<p>
+  <input value="<%= @user.email%>" name="email" class="mail">
+  <p>画像</p>
+  <input type="file" name="image" class="image">
+  <input type="submit" value="保存" class="save">
+</div>
+<% end %>
