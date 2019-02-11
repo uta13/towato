@@ -1,15 +1,23 @@
 
 
 /*新規会員登録*/
+@media screen and (max-width: 600px){
+  .create_user{
+    width: 100%!important;
+  }
+  .sign_up_btn{
+    width: 200px;
+  }
+}
+
 .create_user{
-  width: 40%;
+  width: 600px;
   background-color: #f8f8f8;
-  margin-left: 30%;
-  margin-right: 30%;
+  margin: 0 auto;
   margin-top:100px;
   padding-bottom: 30px;
   border-radius: 10px;
-  height: 600px;
+  height: 500px;
   text-align: center;
 }
 
@@ -79,6 +87,7 @@
   width: 30%;
   margin: 20px 35% 10px 35%;
   border-radius: 10px;
+  text-decoration: none;
 }
 
 
@@ -117,14 +126,19 @@
 
 /*ログイン*/
 .login{
-  width: 40%;
+  width: 600px;
   background-color: #f8f8f8;
-  margin-left: 30%;
-  margin-right: 30%;
+  margin: 0 auto;
   margin-top:100px;
   padding-bottom: 30px;
   border-radius: 10px;
   text-align: center;
+}
+
+@media (max-width: 600px){
+  .login {
+    width: 100%;
+  }
 }
 
 .login h1{
@@ -178,9 +192,9 @@
 .show_sec{
   padding-top:50px;
   padding-bottom: 50px;
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
-  margin-top: 200px;
+  margin-top: 80px;
   background-color: #f8f8f8;
   text-align: center;
 }
@@ -241,15 +255,7 @@
   margin-top: 20px;
 }
 
-.own_posts a{
-  width: 30%;
-  background-color: #fff;
-  display: block;
-  margin: 0 auto;
-  height: 100px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-decoration: none;
-  color: #606060;
-  padding-top: 70px;
-}
+
+
+
+////　スマホ向け

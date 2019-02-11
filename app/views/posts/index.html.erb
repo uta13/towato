@@ -1,13 +1,14 @@
 <div class="contents">
-    <div class="container">
     <div class="posts">
       <% @posts.each do |post| %>
       <div class="post">
         <div class="link">
-          <a href="/posts/<%= post.id %>}"></a>
+          <a href="/posts/<%= post.id %>"></a>
         </div>
         <div class="author">
-          <img src="<%= "/user_images/#{post.author_id}.jpg" %>">
+          <% image = post.author_id %>
+          <% author = User.find_by(id: image) %>
+          <img src="<%= "/user_images/#{author.image_name}" %>">
           <h2><%= link_to(post.author,"/users/#{post.author_id}") %></h2>
         </div>
         <p><%= post.title %></p>
@@ -15,4 +16,3 @@
       <% end %>
     </div>
   </div>
-</div>

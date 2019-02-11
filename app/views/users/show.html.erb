@@ -1,3 +1,4 @@
+<div class="contents">
 <div class="show_sec">
   <img src="<%= "/user_images/#{@user.image_name}" %>">
   <h2><%= @user.name%></h2>
@@ -10,10 +11,18 @@
     <button id="favorite">興味があること</button>
   </div>
   --->
-  <div class="own_posts">
+</div>
+  <div class="posts">
     <% @user.posts.each do |post| %>
-    <div class="u_post">
-    <%= link_to(post.title,"/posts/#{post.id}") %>
+    <div class="post">
+      <div class="link">
+        <a href="/posts/<%= post.id %>}"></a>
+      </div>
+      <div class="author">
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        <h2><%= link_to(post.author,"/users/#{post.author_id}") %></h2>
+      </div>
+      <p><%= post.title %></p>
     </div>
     <% end %>
   </div>

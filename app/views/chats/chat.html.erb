@@ -1,0 +1,19 @@
+<div class="chats">
+    <h1>みんなのコエ</h1>
+        <div class="chats-contents">
+                <% @messages.each do |message| %>
+                    <div class="messages">
+                            <img src="<%= "/user_images/#{@user.image_name}" %>">
+                            <p class="message"><%= message.content %></p>
+                    </div>
+                    <br>
+                <% end %>
+        </div>
+
+        <div class="send">
+            <%= form_tag("/chats/#{@post.id}/update") do %>
+                <textarea name="content" class="send-content" cols="10"></textarea>
+                <input type="submit" value="SEND" class="send-button">
+            <% end %>
+        </div>
+</div>

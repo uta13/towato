@@ -1,11 +1,13 @@
 <div class="create_post">
   <%= form_tag("/posts/create", {multipart:true}) do %>
-  <h2>アイデア名</h2>
-  <input name="title">
-  <h2>アイデアイメージ画像</h2>
-  <input type="file" name="image">
-  <h2>アイデア概要</h2>
-  <textarea name="content"></textarea>
+  <h2>タイトル</h2>
+  <input name="title" placeholder="（例）彼女のバースデーサプライズをしたい">
+  <h2>どんなアイデア？</h2>
+  <textarea name="content" placeholder="二十歳になる彼女をめちゃめちゃ喜ばせたい、ツイッターでバズるようなサプライズパーティのアイデア"></textarea>
+  <h2>なぜそのアイデア？</h2>
+  <textarea name="reason" placeholder="いつもお世話になっている大好きな彼女の２０歳の特別な誕生日を祝いたい！"></textarea>
+  <h2>みんなに聞きたいこと</h2>
+  <textarea name="asking" placeholder="どんなプレゼントがいい？"></textarea>
   <input type="submit" value="投稿" class="submit">
   <% end %>
 </div>

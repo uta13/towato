@@ -1,32 +1,36 @@
-  <div class="show">
-      <div class="container">
-        <div class="top-image">
-          <img src=" <%= "/post_images/#{@post.id}.png" %>">
-        </div>
-        <div class="data">
-          <img src="<%= "/user_images/#{@post.author_id}.jpg" %>">
-          <%= link_to(@post.author,"/users/#{@post.author_id}") %>
-          <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-            <%= link_to("/likes/#{@post.id}/destroy",{method: "post"}) do %>
-              <span class="fa fa-heart done"></span>
+<div class="contents">
+  <div class="background">
+    <div class="show">
+      <div class="post">
+        <div class="title"><%= @post.title %></div>
+          <div class="author">
+            <% image = @post.author_id %>
+            <% author = User.find_by(id: image) %>
+            <img src="<%= "/user_images/#{author.image_name}" %>">
+            <h2><%= link_to(@post.author,"/users/#{@post.author_id}") %></h2>
+            <div class="henshu">
+            <% if @current_user.id == @post.author_id  %>
+              <%= link_to("編集","/posts/#{@post.id}/edit") %>
             <% end %>
-            <%= @likes_count %>
-          <% else %>
-            <%= link_to("/likes/#{@post.id}/create",{method: "post"}) do %>
-              <span class="far fa-heart iine"></span>
-            <% end %>
-            <%= @likes_count %>
-          <% end %>
+            </div>
 
-          <% if @current_user.id == @post.author_id  %>
-            <%= link_to("編集","/posts/#{@post.id}/edit") %>
-          <% end %>
-        </div>
-          <h1><%= @post.title %></h1>
-          <div class="post-content">
-            <p><%= @post.content %></p>
           </div>
-
-
-      </div>
+          <div class="detail">
+            <h3>どんなアイデア？</h3>
+              <p><%= @post.content %></p>
+            <h3>なぜそのアイデア？</h3>
+              <p><%= @post.reason %></p>
+            <h3>みんなに聞きたいこと</h3>
+              <p><%= @post.asking %></p>
+          </div>
     </div>
+    </div>
+    <div class="back">
+    <%= link_to("＜一覧に戻る","/posts/index") %>
+    </div>
+
+    </div>
+
+
+
+</div>

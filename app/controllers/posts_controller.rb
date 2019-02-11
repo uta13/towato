@@ -16,7 +16,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(title: params[:title], author: @current_user.name, content: params[:content], author_id: @current_user.id )
+    @post = Post.new(title: params[:title], author: @current_user.name, content: params[:content],
+       reason: params[:reason], asking: params[:asking], author_id: @current_user.id, image_name: "default.png" )
+
     if @post.save
       redirect_to("/posts/#{@post.id}")
     else
